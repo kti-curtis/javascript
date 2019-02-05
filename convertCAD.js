@@ -1,7 +1,7 @@
-let convertToUSD = function (event) {
-  if ( event.target.value >= 100 || event.target.value <= 1 ) {
+function convertToUSD(event) {
+  if ( event.target.value > 1 || event.target.value < 100 ) {
     var change = document.getElementById("equivUSD");
-    console.log("amount.target.value: ", event.target.value);
+    console.log("event.target.value: ", event.target.value);
     change.innerHTML = event.target.value;
   } else {
     var cadvalid = document.getElementById("CADvalidation");
@@ -10,5 +10,5 @@ let convertToUSD = function (event) {
 }
 
 document.addEventListener("DOMContentLoaded",function() {
-    document.getElementById("CAD").onchange=convertToUSD();
+    document.getElementById("CAD").onchange=convertToUSD;
 }, false);
