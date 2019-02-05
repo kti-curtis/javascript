@@ -1,8 +1,8 @@
-let convertToUSD = function (amount) {
-  if ( amount.target.value >= 100 || amount.target.value <= 1 ) {
+let convertToUSD = function (event) {
+  if ( event.target.value >= 100 || event.target.value <= 1 ) {
     var change = document.getElementById("equivUSD");
-    console.log("amount.target.value: ", amount.target.value);
-    change.innerHTML = amount.target.value;
+    console.log("amount.target.value: ", event.target.value);
+    change.innerHTML = event.target.value;
   } else {
     var cadvalid = document.getElementById("CADvalidation");
     cadvalid.innerHTML = "Enter a number between 1 and 100";
