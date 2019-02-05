@@ -6,7 +6,7 @@ function convertToUSD(event) {
         to : "USD"
         }
       } else {
-        var window.fxSetup = {
+        fxSetup = {
           from : "CAD",
           to : "USD",
           base : "CAD",
