@@ -1,22 +1,25 @@
 function convertToUSD(event) {
   if ( event.target.value > 1 || event.target.value < 100 ) {
+    // Check money.js has finished loading:
     if ( typeof fx !== "undefined" && fx.rates ) {
       fx.settings = {
         from : "CAD",
-        to : "USD"
+        to : "USD",
+        base : "CAD"
         }
       } else {
         fxSetup = {
           from : "CAD",
           to : "USD",
           base : "CAD",
+          // hardcode an approximate.  I don't like it either.
           rates : { "USD" : 0.76, "CAD" : 1 }
         }
       }
 
-    var change = document.getElementById("equivUSD");
-    console.log("event.target.value: ", event.target.value);
-    change.innerHTML = "$" + fx.convert(event.target.value) + "USD";
+    var changeEl = document.getElementById("equivUSD");
+    var converted = fx.convert(event.target.value);
+    changeEl.innerHTML = "USD$ " + converted.toFixed(2);
   } else {
     var cadvalid = document.getElementById("CADvalidation");
     cadvalid.innerHTML = "Enter a number between 1 and 100";
