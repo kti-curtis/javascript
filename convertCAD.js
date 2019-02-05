@@ -1,5 +1,8 @@
 function convertToUSD(event) {
-  if ( event.target.value > 1 || event.target.value < 100 ) {
+  if ( event.target.value > 1 && event.target.value < 1000000 ) {
+    // remove error message
+    document.getElementById("CADvalidation").classList.remove("has-error");
+    document.getElementById("errorMessage").innerHTML = "";
     // Check money.js has finished loading:
     if ( typeof fx !== "undefined" && fx.rates ) {
       fx.settings = {
@@ -22,7 +25,8 @@ function convertToUSD(event) {
     changeEl.innerHTML = "USD$ " + converted.toFixed(2);
   } else {
     var cadvalid = document.getElementById("CADvalidation");
-    cadvalid.innerHTML = "Enter a number between 1 and 100";
+    cadvalid.classList.add("has-error");
+    document.getElementById("errorMessage").innerHTML = "Please enter a dollar value between 1 and 1,000,000";
   }
 }
 
