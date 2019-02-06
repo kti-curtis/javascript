@@ -31,11 +31,10 @@ function convertToUSD(event) {
   }
 }
 
-window.onload = function() {
-document.addEventListener("DOMContentLoaded",function() {
+window.addEventListener("load",function() {
     document.getElementById("CAD").onchange=convertToUSD;
     // pre-fetch the exchange rates
-    $.getJSON(
+    jQuery.getJSON(
     	// using Open Exchange Rates
         'https://openexchangerates.org/api/latest.json?app_id=8fcd3600b7084946911bef59c67775f9',
         function(data) {
@@ -53,4 +52,3 @@ document.addEventListener("DOMContentLoaded",function() {
         }
     );
 }, false);
-}
